@@ -1,11 +1,19 @@
 <h1><%= @recipe.name %></h1>
 
 <p><strong>Preparation Time:</strong>
-  <%= @recipe.preparation_time.strftime("%H:%M:%S") %></p>
+  <% if @recipe.preparation_time.present? %>
+    <%= @recipe.preparation_time.strftime("%H:%M:%S") %>
+  <% else %>
+    Not specified
+  <% end %>
+</p>
 <p><strong>Cooking Time:</strong>
-  <%= @recipe.cooking_time.strftime("%H:%M:%S") %></p>
-<p><strong>Description:</strong>
-  <%= @recipe.description %></p>
+  <% if @recipe.cooking_time.present? %>
+    <%= @recipe.cooking_time.strftime("%H:%M:%S") %>
+  <% else %>
+    Not specified
+  <% end %>
+</p>
 
 <p>Public </p>
 <% if can?(:toggle_public, @recipe) %>
