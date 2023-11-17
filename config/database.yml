@@ -20,18 +20,17 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: 'narson'
-  host: localhost
-  port: 5433
 
 development:
   <<: *default
   adapter: postgresql
   database: ror_recipe_app_development
+  username: bran
+  password: 78627862
 
   # The specified database role being used tdatabase: ror_blog_app
-
+  username: bran
+  password: 78627862o connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
