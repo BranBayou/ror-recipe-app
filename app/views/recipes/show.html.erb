@@ -1,38 +1,40 @@
 <h1><%= @recipe.name %></h1>
-
-<p><strong>Preparation Time:</strong>
-  <% if @recipe.preparation_time.present? %>
-    <%= @recipe.preparation_time.strftime("%H:%M:%S") %>
-  <% else %>
-    Not specified
-  <% end %>
-</p>
-<p><strong>Cooking Time:</strong>
-  <% if @recipe.cooking_time.present? %>
-    <%= @recipe.cooking_time.strftime("%H:%M:%S") %>
-  <% else %>
-    Not specified
-  <% end %>
-</p>
-
-<p>Public </p>
-<% if can?(:toggle_public, @recipe) %>
-  <%= form_with(model: @recipe, url: toggle_public_recipe_path(@recipe), method: :patch, html: { class: 'toggle-button' }) do |form| %>
-    <%= form.check_box :on,
-                    role: "switch",
-                    checked: @recipe.public,
-                    onchange: "this.form.submit()" %>
-    <%= form.label :on, class: "toggle-button-label" %>
-  <% end %>
-<% end %>
-
-
-<p><strong>Created By:</strong>
-  <%= @recipe.user.name %></p>
-
- <%= button_tag link_to "Generate shopping list", shopping_lists_path , class: "add-food-button", disabled: true %>
- <%= button_tag link_to "Add ingredient", new_recipe_recipe_food_path(@recipe) , class: "add-food-button", disabled: true %>
-
+<div class="recipe-item">
+  <div>
+    <p><strong>Preparation Time:</strong>
+      <% if @recipe.preparation_time.present? %>
+        <%= @recipe.preparation_time.strftime("%H:%M:%S") %>
+      <% else %>
+        Not specified
+      <% end %>
+    </p>
+    <p><strong>Cooking Time:</strong>
+      <% if @recipe.cooking_time.present? %>
+        <%= @recipe.cooking_time.strftime("%H:%M:%S") %>
+      <% else %>
+        Not specified
+      <% end %>
+    </p>
+    <p><strong>Created By:</strong><%= @recipe.user.name %></p>
+    <%= button_tag link_to "Generate shopping list", shopping_lists_path , class: "add-food-button", disabled: true %>
+  </div>
+<div>
+  <div class="right">
+    <p>Public </p>
+    <% if can?(:toggle_public, @recipe) %>
+      <%= form_with(model: @recipe, url: toggle_public_recipe_path(@recipe), method: :patch, html: { class: 'toggle-button' }) do |form| %>
+        <%= form.check_box :on,
+                        role: "switch",
+                        checked: @recipe.public,
+                        onchange: "this.form.submit()" %>
+        <%= form.label :on, class: "toggle-button-label" %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= button_tag link_to "Add ingredient", new_recipe_recipe_food_path(@recipe) , class: "add-food-button", disabled: true %>
+</div>
+</div>
+ 
 <h2>Foods:</h2>
 <table class="food-table">
   <thead class="show-head">

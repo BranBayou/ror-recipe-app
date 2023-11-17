@@ -1,13 +1,12 @@
-<div>
+<div class="recipe-container">
   <h1>Recipes</h1>
 
   <%= link_to 'New Recipe', new_recipe_path, class: 'new-recipe-button' %>
-
+      <div class="recipe-list-inone">
       <% @recipes.each do |recipe| %>
-     
-          <%= link_to recipe.name, recipe %>
-          Description: <%= recipe.description %>
-          
+        <div class="recipe-list">
+          <div class="left">
+            <%= link_to recipe.name, recipe %>
             <% if can?(:destroy, recipe) %>
               <%= button_to "Remove",
                             recipe,
@@ -15,9 +14,10 @@
                             title: "Delete recipe",
                             class: "delete" %>
             <% end %>
-          
-
+          </div>
+          Description: <%= recipe.description %>
+        </div>
       <% end %>
-
+      </div>
 
 </div>

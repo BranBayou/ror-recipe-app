@@ -1,8 +1,9 @@
+<div class="public-recipe-container">
 <h1>Public Recipes</h1>
-
-<ul id="public-recipes">
+<ul">
   <% @public_recipes.each do |recipe| %>
     <li class="recipe-container" id="<%= dom_id(recipe) %>">
+    <div class="public-recipe-each">
       <div class="name-container">
         <h3><%= link_to "#{recipe.name}", recipe_path(recipe) %></h3>
         <p>By: <strong><i><%= recipe.user.name %></i></strong> </p>
@@ -14,6 +15,8 @@
           <p>Total price: $ <%= total_price.to_i %></p>
         <% end %>
       </div>
+    </div>
     </li>
   <% end %>
 </ul>
+</div>
