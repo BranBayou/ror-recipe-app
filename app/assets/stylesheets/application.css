@@ -13,3 +13,149 @@
  *= require_tree .
  *= require_self
  */
+body {
+  max-width: 768px;
+  margin: 10px auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: x-large;
+  font-weight: 400;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid gray;
+}
+
+.logo {
+  width: 30px;
+}
+
+.nav-container ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0;
+}
+
+.nav-container ul li {
+  list-style-type: none;
+}
+
+.recipe-container a {
+  text-decoration: none;
+  color: black;
+}
+
+.button-box a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-container ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-container ul li a:hover {
+  border-bottom: 2px solid gray;
+  padding: 5px;
+}
+
+/* Recipe */
+
+.recipe-container {
+  position: relative;
+}
+
+.new-recipe {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.recipe-list-inone {
+  margin-top: 90px;
+}
+
+.recipe-list {
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid gray;
+  margin: 20px auto;
+  padding: 5px;
+}
+
+.new-recipe-button {
+  position: absolute;
+  right: 120px;
+  text-align: right;
+  border: 2px solid gray;
+  padding: 5px;
+  margin: 5px;
+}
+
+.recipe-list .left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recipe-item {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+}
+
+.recipe-item .right {
+  display: flex;
+  align-items: center;
+}
+
+/* Food */
+
+.food-container {
+  position: relative;
+}
+
+.add-food-button {
+  position: absolute;
+  right: 120px;
+  text-align: right;
+  border: 2px solid gray;
+  padding: 5px;
+  margin: 5px;
+}
+
+.food-container table {
+  max-width: 500px;
+  margin: 90px auto;
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+/* Public recipe */
+
+.public-recipe-container ul li {
+  list-style-type: none;
+}
+
+.public-recipe-container .public-recipe-each {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+  padding: 8px;
+}
+
+/* Shopping lists */

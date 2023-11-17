@@ -1,32 +1,62 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
+
+  # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes
   end
 
+  # GET /recipes/1 or /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
+    @user = @recipe.user
+    @recipe_foods = @recipe.recipe_foods
   end
 
+  # GET /recipes/new
   def new
-    @recipes = Recipe.new
+    @recipe = Recipe.new
   end
 
+  # POST /recipes or /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-    if @recipe.save
-      redirect_to @recipe, notice: 'Recipe was successfully created.'
-    else
-      render :new
+    @recipe.user = current_user
+    respond_to do |format|
+      if @recipe.save
+        format.html { redirect_to recipes_path, notice: 'Recipe Created Successfully' }
+        format.json { render :show, status: :created, location: @recipe }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
   end
 
+  # DELETE /recipes/1 or /recipes/1.json
   def destroy
-    @recipe.find(params[:id]).destroy
-    redirect_to recipes_url, notice: 'Recipe was successfully destroyed.'
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+
+    redirect_to recipes_url, notice: 'Recipe was successfully deleted.'
+  end
+
+  def toggle_public
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: !@recipe.public)
+
+    redirect_to recipe_path(@recipe)
   end
 
   private
 
+  # Use callbacks to share common setup or constraints between actions.
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
