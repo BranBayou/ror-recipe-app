@@ -108,6 +108,12 @@ To run tests, run the following command:
 - Twitter: [@bran-baye](https://twitter.com/bran_baye)
 - LinkedIn: [Berhanu Baye](https://www.linkedin.com/in/bran-baye)
 
+  👤 **Andry Narson**
+
+- GitHub: [@rbd3](https://github.com/rbd3)
+- Twitter: [@Narson321](https://twitter.com/@Narson321)
+- LinkedIn: [@Andry Narson Rabedesana](https://linkedin.com/in/andry-rabedesana)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
