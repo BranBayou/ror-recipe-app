@@ -2,6 +2,11 @@ class RecipeFoodsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
 
+  def new
+    @recipe_food = RecipeFood.new
+    @foods = Food.all # Assuming Food is the model for your ingredients
+  end
+
   # GET /recipe_foods or /recipe_foods.json
   def index
     @recipe_foods = RecipeFood.all
@@ -10,17 +15,12 @@ class RecipeFoodsController < ApplicationController
   # GET /recipe_foods/1 or /recipe_foods/1.json
   def show; end
 
-  # GET /recipe_foods/new
-  def new
-    @recipe_food = RecipeFood.new
-  end
-
   # GET /recipe_foods/1/edit
   def edit; end
 
   # POST /recipe_foods or /recipe_foods.json
   def create
-    @recipe = Recipe.find(params[:recipe_id])
+    @recipe = Recipe.includes(:recipe_foods, :user).find(params[:id])
     @new_recipe = @recipe.recipe_foods.new(recipe_food_params)
     @foods = Food.all
 

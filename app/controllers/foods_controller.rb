@@ -44,7 +44,7 @@ class FoodsController < ApplicationController
 
   # DELETE /foods/1 or /foods/1.json
   def destroy
-    @food = current_user.foods.find(params[:id])
+    @food = current_user.foods.includes(:category).find(params[:id])
     @food.destroy
     redirect_to foods_url, notice: 'Food was successfully deleted.'
   end

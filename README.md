@@ -28,9 +28,6 @@
 
 **[Ror recipe app]** The Blog app will be a classic example of a blog website. It is a functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts. It has been made by the following ER diagram.
 
-
-![ER diagram image](https://github.com/BranBayou/blog-app/blob/crud/app/assets/images/blog_app_erd_v1_1.png)
-
 ## Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
