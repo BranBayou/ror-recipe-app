@@ -110,7 +110,7 @@ h1 {
 .recipe-item {
   max-width: 500px;
   margin: 0 auto;
-  padding: 8px;
+  padding: 50px 0;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid gray;
@@ -131,6 +131,12 @@ h1 {
   position: absolute;
   right: 120px;
   text-align: right;
+  border: 2px solid gray;
+  padding: 5px;
+  margin: 5px;
+}
+
+.add-food-button-in-recipe {
   border: 2px solid gray;
   padding: 5px;
   margin: 5px;
