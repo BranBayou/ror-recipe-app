@@ -11,6 +11,27 @@
   </head>
 
   <body>
+  
+  <% if user_signed_in? %> 
+  <div class="nav-container">
+  <nav>
+    <ul>
+      <%= image_tag("res.png", class: "logo") %>
+      <li><%= link_to "Recipes", recipes_path %></li>
+      <li><%= link_to "Foods", foods_path %></li>
+      <li><%= link_to "Public Recipes", public_recipes_path %></li>
+      <li><%= link_to "Shopping Lists", shopping_lists_path %></li>
+    </ul>
+  </nav>
+  <%= link_to "sign_out", destroy_user_session_path, data:{turbo_method: :delete} %>
+  </div>
+  <% end %>
+  
+  
+  
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
+  
 </html>
